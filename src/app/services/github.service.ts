@@ -23,7 +23,7 @@ export class GithubService {
             { apiUrl, client_id: clientId, client_secret: secret } = this._config,
             url = `${apiUrl}repos/${organization}/${repoName}/issues?per_page=${per_page}&page=${pageNumber}&client_id=${clientId}&client_secret=${secret}`;
 
-        return this._http.get(url).map(res => res.json());
+        return this._http.get(url).map(res => res.json().filter(this.issueIsNotPR));
     }
 
     public getSingleIssue(
@@ -43,5 +43,9 @@ export class GithubService {
             { client_id: clientId, client_secret: secret } = this._config,
             url = `${apiUrl}?client_id=${clientId}&client_secret=${secret}`;
         return this._http.get(url).map(res => res.json());
+    }
+
+    private issueIsNotPR({ pull_request }): boolean {
+        return !pull_request;
     }
 }
