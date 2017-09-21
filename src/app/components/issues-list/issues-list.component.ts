@@ -19,7 +19,6 @@ export class IssuesListComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
-        private router: Router,
         private githubService: GithubService
     ) {
         this.loading = true;

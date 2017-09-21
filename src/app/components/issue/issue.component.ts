@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {IGithubIssue} from 'app/interfaces/interfaces';
 
 @Component({
@@ -6,12 +6,7 @@ import {IGithubIssue} from 'app/interfaces/interfaces';
     templateUrl: './issue.component.html',
     styleUrls: ['./issue.component.css']
 })
-export class IssueComponent implements OnInit {
+export class IssueComponent {
     @Input()
     private issue: IGithubIssue;
-
-    constructor() {}
-
-    ngOnInit() {
-    }
 }

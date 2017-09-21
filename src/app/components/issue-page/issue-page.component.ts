@@ -30,6 +30,7 @@ export class IssuePageComponent implements OnInit {
     getIssueData(issueId: number) {
         this.loading = true;
 
+        // Getting issue data in case we visit the issue page directly from URL
         this.githubService.getSingleIssue(issueId).subscribe(
             (data: IGithubIssue) => {
                 this.issue = data;
