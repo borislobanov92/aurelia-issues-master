@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-md-10">
+        <a [routerLink]="['issues', issue.number]" class="issue-link">{{issue.title}}</a>
+        <div class="issue-info">
+            #<span>{{issue.number}}</span> opened on
+            <span>{{issue.created_at | date}}</span> by
+            <span>{{issue.user.login}}</span>
+        </div>
+    </div>
+    <div class="col-md-2 text-right">
+        <a [routerLink]="['issues', issue.number]" class="comments-link">
+            <i class="fa fa-comments-o"></i>
+            {{issue.comments}}
+        </a>
+    </div>
+</div>
+

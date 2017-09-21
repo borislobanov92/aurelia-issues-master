@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+    <div class="panel-heading issue-list-header">
+        List of issues for Aurelia Framework
+    </div>
+    <div class="panel-body issue-row" *ngFor="let issue of issuesData">
+        <issue [issue]="issue"></issue>
+    </div>
+</div>
+<div>
+    <ul class="pagination">
+        <li *ngIf="pageNumber > 1">
+            <a [routerLink]="['/']" [queryParams]="{page: pageNumber - 1}">&lt;&lt; Back</a>
+        </li>
+        <li *ngIf="hasNext">
+            <a [routerLink]="['/']" [queryParams]="{page: pageNumber + 1}">Forward &gt;&gt;</a>
+        </li>
+    </ul>
+</div>

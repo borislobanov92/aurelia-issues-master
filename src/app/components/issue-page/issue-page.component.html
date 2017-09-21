@@ -1,0 +1,31 @@
+<div class="container issue-page" *ngIf="issue">
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+
+    <h1 class="issue-title">
+        <a [href]="issue.html_url" target="_blank">
+            {{issue.title}}
+        </a>
+    </h1>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <strong>{{issue.user.login}}</strong> commented on <strong>{{issue.created_at | date}}</strong>
+        </div>
+        <div class="panel-body" markdown-to-html [data]="issue.body"></div>
+    </div>
+
+    <div class="comment-section" *ngIf="comments; else no_comments;">
+        <div class="panel panel-default" *ngFor="let comment of comments">
+            <div class="panel-heading">
+                <strong>{{comment.user.login}}</strong> commented on <strong>{{comment.created_at | date}}</strong>
+            </div>
+            <div class="panel-body" markdown-to-html [data]="comment.body"></div>
+        </div>
+    </div>
+
+    <ng-template #no_comments>
+        <div class="no-comments">
+            No one has commented on this issue yet.
+        </div>
+    </ng-template>
+</div>

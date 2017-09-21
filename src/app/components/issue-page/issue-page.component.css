@@ -1,0 +1,15 @@
+.no-comments {
+  font-size: 1.25em;
+  font-weight: bold;
+  color: #24292e;
+}
+
+.issue-title a {
+  color: #24292e;
+  text-decoration: none;
+}
+
+.issue-title a:hover {
+  color: #0366d6 !important;
+  text-decoration: none;
+}
